@@ -49,5 +49,6 @@ export interface ResumeData {
     date: string;
     awarder?: string;
     summary: string;
+    image?: string;
   }>;
 }

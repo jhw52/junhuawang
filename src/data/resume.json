@@ -1,84 +1,85 @@
 {
   "basics": {
-    "name": "王俊华",
-    "label": "人工智能本科生 / 客户端开发实习生",
-    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Wang",
+    "name": "JunHua Wang",
+    "label": "王俊华",
+    "image": "/src/data/picture/PersonalPhoto.jpg",
     "email": "3380317628@qq.com",
     "phone": "15876003594",
-    "summary": "我性格积极开朗，善于与团队成员沟通协作，能够快速融入新的工作环境。面对任务压力时，我能保持冷静，合理安排时间，高效推进工作，具备较强的抗压能力。我对客户端开发充满热情，愿意主动学习新知识、新技术，持续成长。",
-    "location": "广东·广州"
+    "summary": "I am proactive, cheerful, and good at communication and collaboration within a team, able to quickly integrate into new work environments. When facing task pressure, I can remain calm, manage time reasonably, and advance work efficiently, possessing strong stress resistance. I am passionate about client-side development, willing to actively learn new knowledge and technologies, and grow continuously.",
+    "location": "Guangzhou, Guangdong"
   },
   "education": [
     {
-      "institution": "广东工业大学",
-      "area": "人工智能",
-      "studyType": "本科",
+      "institution": "Guangdong University of Technology",
+      "area": "Artificial Intelligence",
+      "studyType": "Bachelor",
       "startDate": "2023-09",
-      "endDate": "至今",
-      "score": "GPA 3.5/5.0 (专业前10%)",
-      "courses": ["程序设计", "离散数学", "Python数值分析"]
+      "endDate": "Present",
+      "score": "GPA 3.5/5.0 (Top 10%)",
+      "courses": ["Programming Design", "Discrete Mathematics", "Python Numerical Analysis"]
     }
   ],
   "experience": [],
   "projects": [
     {
-      "name": "成绩管理系统",
-      "position": "项目负责人 / 核心开发者",
+      "name": "Grade Management System",
+      "position": "Project Leader / Lead Developer",
       "startDate": "2023-10",
       "endDate": "2024-01",
-      "summary": "为解决班级成绩管理混乱及数据安全问题，独立设计并开发了一款支持多用户角色的管理系统。",
+      "summary": "Designed and developed a multi-user management system to solve class grade management confusion and data security issues.",
       "highlights": [
-        "独立完成系统整体架构设计，使用C++实现学生信息的增、删、改、查及持久化存储",
-        "设计并实现了教师端与学生端的分离登录系统，通过用户权限管理提升了数据安全性",
-        "开发了成绩自动排序、平均分/最高分统计等核心数据分析功能",
-        "获得“创想社杯”程序设计大赛二等奖"
+        "Independently completed the overall system architecture design, using C++ to implement student information CRUD and persistent storage",
+        "Designed and implemented a separate login system for teachers and students, enhancing data security via user permission management",
+        "Developed core data analysis functions such as automatic grade sorting and mean/max score statistics",
+        "Won 2nd Prize in the 'Think Big Cup' Programming Competition"
       ],
-      "keywords": ["C++", "文件I/O", "数据结构", "链表", "数组"]
+      "keywords": ["C++", "File I/O", "Data Structure", "Linked List", "Array"]
     }
   ],
   "skills": [
     {
-      "name": "开发语言",
+      "name": "Programming Languages",
       "level": "Expert",
       "keywords": ["C/C++ (STL, OOP)", "Python"]
     },
     {
-      "name": "开发工具",
+      "name": "Tools",
       "level": "Advanced",
       "keywords": ["Visual Studio", "VS Code", "Git"]
     },
     {
-      "name": "办公软件",
+      "name": "Office Software",
       "level": "Advanced",
       "keywords": ["Microsoft Office (Word, Excel, PowerPoint)"]
     }
   ],
   "awards": [
     {
-      "title": "第十六届蓝桥杯全国软件大赛全国总决赛 (C/C++大学B组)",
+      "title": "16th Lanqiao Cup National Software Competition (C/C++ University Group B)",
       "date": "2025.06",
-      "awarder": "工业和信息化部人才交流中心",
-      "summary": "国家二等奖"
+      "awarder": "Ministry of Industry and Information Technology",
+      "summary": "National Second Prize",
+      "image": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=800&auto=format&fit=crop&q=60"
     },
     {
-      "title": "第十六届全国大学生数学竞赛 (广东赛区)",
+      "title": "16th National Mathematics Competition for College Students (Guangdong Division)",
       "date": "2024.11",
-      "summary": "省级一等奖"
+      "summary": "Provincial First Prize"
     },
     {
-      "title": "广东工业大学校级一等奖学金",
+      "title": "GUOT University First Class Scholarship",
       "date": "2024.09",
-      "summary": "一等奖学金"
+      "summary": "First Class Scholarship"
     },
     {
-      "title": "广东省大学生数学建模竞赛",
+      "title": "Guangdong University Student Mathematical Modeling Competition",
       "date": "2024.09",
-      "summary": "省级三等奖"
+      "summary": "Provincial Third Prize"
     },
     {
-      "title": "广东工业大学“创想社杯”程序设计大赛",
+      "title": "GUOT 'Think Big Cup' Programming Competition",
       "date": "2024.04",
-      "summary": "二等奖"
+      "summary": "Second Prize"
     }
   ]
 }

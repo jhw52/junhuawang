@@ -28,12 +28,12 @@ import resumeJson from './data/resume.json';
 const Navbar = ({ activeSection }: { activeSection: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const items = [
-    { id: 'about', label: '关于', icon: User },
-    { id: 'education', label: '教育', icon: GraduationCap },
-    { id: 'skills', label: '技能', icon: Code2 },
-    { id: 'projects', label: '项目', icon: Briefcase },
-    { id: 'awards', label: '荣誉', icon: Trophy },
-    { id: 'contact', label: '联系', icon: Mail },
+    { id: 'about', label: 'About', icon: User },
+    { id: 'education', label: 'Education', icon: GraduationCap },
+    { id: 'skills', label: 'Skills', icon: Code2 },
+    { id: 'projects', label: 'Projects', icon: Briefcase },
+    { id: 'awards', label: 'Awards', icon: Trophy },
+    { id: 'contact', label: 'Contact', icon: Mail },
   ];
 
   const scrollTo = (id: string) => {
@@ -162,9 +162,9 @@ export default function App() {
                   Available for Internships
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-6">
-                  你好，我是 <span className="text-blue-600">{data.basics.name}</span>
+                  {data.basics.name}
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-500 font-medium mb-8 max-w-2xl leading-relaxed">
+                <p className="text-3xl md:text-5xl text-slate-500 font-bold mb-8 max-w-2xl leading-relaxed">
                   {data.basics.label}
                 </p>
                 <p className="text-lg text-slate-600 mb-10 max-w-2xl leading-relaxed">
@@ -172,17 +172,17 @@ export default function App() {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <a
-                    href={`mailto:${data.basics.email}`}
+                  <button
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all flex items-center gap-2"
                   >
-                    <Mail size={18} /> 联系我
-                  </a>
+                    <Mail size={18} /> Contact Me
+                  </button>
                   <button
                     onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                     className="px-8 py-4 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2"
                   >
-                    查看作品 <ChevronRight size={18} />
+                    View Projects <ChevronRight size={18} />
                   </button>
                 </div>
               </motion.div>
@@ -212,7 +212,7 @@ export default function App() {
 
         {/* Education */}
         <section id="education" className="section-padding bg-slate-100/50">
-          <SectionHeading icon={GraduationCap}>教育背景</SectionHeading>
+          <SectionHeading icon={GraduationCap}>Education</SectionHeading>
           <div className="grid gap-6">
             {data.education.map((edu, idx) => (
               <Card key={idx}>
@@ -229,7 +229,7 @@ export default function App() {
                 </div>
                 <div className="mt-6 flex flex-col md:flex-row gap-8">
                   <div className="flex-1">
-                    <p className="font-bold text-slate-700 mb-2">主修课程</p>
+                    <p className="font-bold text-slate-700 mb-2">Key Courses</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.courses.map((course, i) => (
                         <span key={i} className="text-sm text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-lg">
@@ -239,7 +239,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-slate-700 mb-2">成绩指标</p>
+                    <p className="font-bold text-slate-700 mb-2">Academic Honors</p>
                     <p className="text-slate-600 italic">{edu.score}</p>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ export default function App() {
 
         {/* Skills */}
         <section id="skills" className="section-padding">
-          <SectionHeading icon={Code2}>专业技能</SectionHeading>
+          <SectionHeading icon={Code2}>Technical Skills</SectionHeading>
           <div className="grid md:grid-cols-3 gap-8">
             {data.skills.map((skillGroup, idx) => (
               <Card key={idx} className="flex flex-col h-full">
@@ -274,7 +274,7 @@ export default function App() {
         {/* Projects */}
         <section id="projects" className="section-padding bg-slate-900 text-white overflow-hidden">
           <div className="relative z-10">
-            <SectionHeading icon={Briefcase}><span className="text-white">项目经历</span></SectionHeading>
+            <SectionHeading icon={Briefcase}><span className="text-white">Project Experience</span></SectionHeading>
             <div className="grid gap-12">
               {data.projects.map((project, idx) => (
                 <div key={idx} className="grid md:grid-cols-2 gap-12 items-center">
@@ -337,25 +337,37 @@ export default function App() {
 
         {/* Awards */}
         <section id="awards" className="section-padding">
-          <SectionHeading icon={Trophy}>获奖经历</SectionHeading>
+          <SectionHeading icon={Trophy}>Awards & Honors</SectionHeading>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.awards.map((award, idx) => (
-              <Card key={idx} className="group">
-                <div className="text-sm font-mono text-blue-500 mb-3 flex justify-between items-center">
-                  <span>{award.date}</span>
-                  <Trophy size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="font-bold text-slate-800 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
-                  {award.title}
-                </h3>
-                <p className="text-sm text-slate-500 leading-relaxed uppercase tracking-wide font-bold">
-                  {award.summary}
-                </p>
-                {award.awarder && (
-                  <p className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-400 italic">
-                    颁奖单位: {award.awarder}
-                  </p>
+              <Card key={idx} className="group overflow-hidden !p-0">
+                {award.image && (
+                  <div className="w-full h-48 overflow-hidden bg-slate-100">
+                    <img 
+                      src={award.image} 
+                      alt={award.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
                 )}
+                <div className="p-8">
+                  <div className="text-sm font-mono text-blue-500 mb-3 flex justify-between items-center">
+                    <span>{award.date}</span>
+                    <Trophy size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <h3 className="font-bold text-slate-800 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+                    {award.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 leading-relaxed uppercase tracking-wide font-bold">
+                    {award.summary}
+                  </p>
+                  {award.awarder && (
+                    <p className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-400 italic">
+                      Awarder: {award.awarder}
+                    </p>
+                  )}
+                </div>
               </Card>
             ))}
           </div>
@@ -364,77 +376,56 @@ export default function App() {
         {/* Contact */}
         <section id="contact" className="section-padding">
           <div className="bg-blue-600 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
-            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">准备好开始合作了吗？</h2>
-                <p className="text-blue-100 text-lg mb-10 max-w-md">
-                  我正在寻找客户端开发相关的实习机会。如果您觉得我符合您的需求，欢迎随时联系！
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                      <Mail size={24} />
-                    </div>
-                    <div>
-                      <p className="text-blue-200 text-sm uppercase tracking-widest font-bold">电子邮件</p>
-                      <a href={`mailto:${data.basics.email}`} className="text-xl font-medium hover:underline">{data.basics.email}</a>
-                    </div>
+            <div className="relative z-10 max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6">Contact Me Now</h2>
+              <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                I am currently seeking client-side development internship opportunities. If you think I'm a good fit, feel free to reach out directly through the channels below!
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                {/* Email Box */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2.5rem] p-10 flex flex-col items-center justify-center transition-all hover:bg-white/15"
+                >
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 text-white">
+                    <Mail size={32} />
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                      <Phone size={24} />
-                    </div>
-                    <div>
-                      <p className="text-blue-200 text-sm uppercase tracking-widest font-bold">联系电话</p>
-                      <p className="text-xl font-medium tracking-tight">{data.basics.phone}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                      <MapPin size={24} />
-                    </div>
-                    <div>
-                      <p className="text-blue-200 text-sm uppercase tracking-widest font-bold">个人位置</p>
-                      <p className="text-xl font-medium">{data.basics.location}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  <h3 className="text-blue-200 text-xs uppercase tracking-[0.2em] font-black mb-3">Email Address</h3>
+                  <a 
+                    href={`mailto:${data.basics.email}`} 
+                    className="text-xl md:text-2xl font-bold hover:text-blue-100 transition-colors break-all"
+                  >
+                    {data.basics.email}
+                  </a>
+                </motion.div>
 
-              <div className="bg-white rounded-[2rem] p-8 md:p-10 text-slate-900 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-8">发送快速留言</h3>
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-500 uppercase">姓名</label>
-                      <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="您的姓名" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-500 uppercase">邮箱</label>
-                      <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="您的邮箱" />
-                    </div>
+                {/* Location Box */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2.5rem] p-10 flex flex-col items-center justify-center transition-all hover:bg-white/15"
+                >
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 text-white">
+                    <MapPin size={32} />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-500 uppercase">信息</label>
-                    <textarea rows={4} className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none resize-none" placeholder="留言内容..."></textarea>
-                  </div>
-                  <button className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all">
-                    提交留言
-                  </button>
-                </form>
+                  <h3 className="text-blue-200 text-xs uppercase tracking-[0.2em] font-black mb-3">Location</h3>
+                  <p className="text-xl md:text-2xl font-bold">
+                    {data.basics.location}
+                  </p>
+                </motion.div>
               </div>
             </div>
             
             {/* Background elements */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-40 -mt-40 blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full -mr-64 -mt-64 blur-[120px]"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-400/20 rounded-full -ml-64 -mb-64 blur-[120px]"></div>
           </div>
         </section>
       </main>
 
       <footer className="py-12 border-t border-slate-200 text-center">
         <p className="text-slate-400 text-sm mb-4">
-          © {new Date().getFullYear()} {data.basics.name}. Built with ❤️ in Guangdong.
+          © {new Date().getFullYear()} {data.basics.name}. Professional Portfolio. Built with React & Tailwind.
         </p>
         <div className="flex justify-center gap-4 text-slate-400">
           <Github size={20} className="hover:text-slate-900 cursor-pointer transition-colors" />
